@@ -1,6 +1,6 @@
 from hcsr04 import HCSR04
 from machine import Pin, SoftI2C
-import SSD1306, network, time                            # importa el módulo network
+import SSD1306, network, time                            
 
 print("inicio")
 
@@ -9,7 +9,7 @@ lcd = SSD1306.SSD1306_I2C(128, 64, i2c)
 
 sensor = HCSR04(trigger_pin=13, echo_pin=12, echo_timeout_us=1000000)
 lcd.invert(True)
-
+#cordenadas de la pantalla
 cordenadaXTitulo = 30
 CordenadaYTitulo = 5
 distanciaSensor = 0
@@ -27,7 +27,7 @@ def conexionWIFI(SSID, PASSWORD):
         while not sta_if.isconnected():           # ...si no se ha establecido la conexión...
             pass                                  # ...repite el bucle...
         
-    response = urequests.get("http://leviathandavid.pythonanywhere.com/")
+    response = urequests.get("http://alex1423.pythonanywhere.com/")
     response.close()
     print('Configuración de red (IP/netmask/gw/DNS):', sta_if.ifconfig())
 
